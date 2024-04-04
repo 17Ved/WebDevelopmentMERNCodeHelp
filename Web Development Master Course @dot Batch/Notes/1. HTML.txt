@@ -1,0 +1,300 @@
+* HTML - Hyper text markup language - 
+
+	Markup      - annotations/tags used to define/markup content 
+	Hyper Text  - Many webpages are linked to each other / one webpage is linked to another webpages
+
+	* HTML is basic building block, skeleton, description of web page, case insensitive.
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+* Tag 	- tag are annotations which tells browser how to render different elements.
+		ex - <p> </p> is used to tell browser that this is a paragraph
+			 <h1> </h1> similar with head tag
+			 <img> </img>, <a> </a>
+
+			 Tag - <h1> - this is opening tag, </h1> - this is closing tag, <h1> Content inside h1 tag </h1> - this whole thing makes element.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+* Mainly two types of HTML Text element  -
+1. Block element  - <p>, <h1>, <article>, <section>.
+2. Inline element - <em> - emphasis, <strong>, <a> - links. Inline elements are used to differentiate specific part of text
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+* div tag - 
+Normal div tag looks like this & its functionality will be like paragraph tag
+<div> This is div tag </div>
+  <div> This is division one </div>
+    <div> This is division second</div> 
+
+    		-- these both line will print output on two different lines
+
+
+* Now if we add id to the div tag, then it tells that the name of this div tag is "vedant"
+<div id = "vedant"> This is div tag </div>
+	
+  we can customize div tag as per our need, ex - I want the text inside div tag in italic, then I can customize it like that.
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* Self closing tags / empty tags - 
+<br/> - break tag - inserts blank line between 2 lines
+<input/> , <img/> 
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Lists - 
+3 types of list
+1. Ordered list
+2. Unordered list 
+3. Description list 
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+* attributes -  properties, features 
+ex - attributes of an image like - height, width, src
+
+All HTML elements[block, inline] can have attributes.
+Attributes provide additional info about elements.
+Attributes always lies within the starting tag of an element.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+* Breakdown of whole HTML boiler-plate-
+
+<!Doctype html>   ---> this line tells your browser that this file is html V5 document.
+<html lang="en">  ---> tells content of this webpage will be in english language.
+<head> </head>    ---> tag contains metadata of respective html document. The <head> HTML element contains 	machine-readable information (metadata) about the document, like its title, scripts, and style sheets, viewports.
+<body> </body>    ---> contains actual content of webpage.
+<title> </title>  ---> lies inside head tag, contains favicon and title of web doc.
+
+
+<meta> tag - meta is data about data 
+			metadata about html document. Lies within <head> tag
+			Used to specify - character set, page description, keywords, author, viewport.
+			Metadata not displayed to the user.
+
+
+*viewport inside meta tag - The browser's viewport is the area of the window in which web content can be seen. This is often not the same size as the rendered page, in which case the browser provides scrollbars for the user to scroll around and access all the content. As per your device width - mobile, tab, laptop
+
+
+
+* initial-scale=1.0 inside meta tag - defines/controls the zoom level when page is first loaded
+
+
+* While dealing with link <a> tag --->  <a href = "https://www.thecodehelp.in/" target = "_blank"> Truth of Life</a>
+			
+we use target attribute to specify whether respective link will open in a new/blank tab or self tab or top or _parent. 		Attributes of target is = _parent, _top, _self, _blank.
+
+
+
+
+* <hr> tag is used to insert horizontal line - The <hr> HTML element represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
+
+
+
+* <pre>  ---> tag is used when you don't want to use <br> tag to format text in html document 
+				The <pre> HTML element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or monospaced, font. 
+
+				Whitespace inside this element is displayed as written. 
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+* Formatting - 
+bold, italic, small, large
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+* span tag - 
+		
+		The <span> HTML element is a generic inline container for phrasing content, which does not inherently represent anything. 
+		It can be used to group elements for styling purposes (using the class or id attributes), or because they share attribute values, such as lang. 
+		It should be used only when no other semantic element is appropriate. 
+		<span> is very much like a <div> element, but <div> is a block-level element whereas a <span> is an inline-level element.
+
+		Span is same as <div> but it is an inline element 
+				<span>This is span one</span>
+    			<span>This is span second</span>  - these both line will print output on same line
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+* <mark> tag is used to mark text with yellow bgcolor
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+* Quotation tags - 
+blockquote,  q, citation - cite tag, abbr for abbreviation, address tag
+
+<cite> - The value of this attribute is a URL that designates a source document or message for the information quoted. This attribute is intended to point to information explaining the context or the reference for the quote. 
+
+
+<address> - The <address> HTML element indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
+
+
+<q> - The <q> HTML element indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; For long quotations use the <blockquote> element.
+
+
+
+<abbr> - When including an abbreviation or acronym, provide a full expansion of the term in plain text on first use, along with the <abbr> to mark up the abbreviation. This informs the user what the abbreviation or acronym means.
+
+
+
+* <figure> - The <figure> HTML element represents self-contained content, potentially with an optional caption, which is specified using the <figcaption> element. The figure, its caption, and its contents are referenced as a single unit.
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+* For adding Favicon - <link rel="icon" href="icon.ico" />
+
+-----------------------------------------------------------------------------------------------------------------------
+
+* <Table> - 
+The <table> HTML element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
+
+border-collapse - is used to give table a single line border.
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+* (#) and (.) ---> While dealing with class we've to use (.) & while dealing with id we've to use (#).
+
+					for ex. = <div class="div1">This is div tag</div> <br>
+			    <div id="div2">This is div2 tag</div>
+
+			     <style>
+					    .div1 {
+					      background-color: blueviolet;
+					      display: inline-block;
+					    }
+					    #div2 {
+					      border: 2px solid;
+					      display: inline-block;
+					      background-color: aqua;
+					    } 
+					</style>
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+ * Semantic tags in html -
+
+ 		In HTML, for example, the <h1> element is a semantic element, which gives the text it wraps around the role (or meaning) of "a top level heading on your page."
+
+ 		Same <table> which describes that this tag generates table.
+
+ 		Same <section> which describes that this tag contains particular section. Same with <article>.
+
+ 		
+ 		List of Semantic tags - 
+
+			<aside>
+			<details>
+			<figcaption>
+			<figure>
+			<form>
+			<footer>
+			<header>
+			<main>
+			<mark>
+			<nav>	
+			<section>
+			<summary>
+			<time>
+
+
+		Examples of non sematic tags - <div>, <span>, e.t.c.
+
+
+
+Q. Why use <p>, <article>, <section> separately?
+
+		all these prints only plain text, difference is each tag provides different meaning 
+		
+		Article contains multiple paragraphs, so use <p> inside <article>. 
+		
+		It's good practice, also <section> refers to different sections like bioigraphy, resources, history section. so use <section> tag for different sections.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+Q. body vs main tag?
+
+		The body element is the container for all the content that will be displayed to the user when they visit the webpage. 
+
+		The main element is used to represent the main content of the webpage, and it should only contain content that is directly related to the central topic of the page.
+
+		<main> contains content other that header and footer of webpage, means central theme /topic of webpage that user sees.
+
+		<body> contains all of the content of webpage that user sees.
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+Q. What is the HTML DOM?
+
+	The HTML DOM is an Object Model for HTML. It defines:
+	
+	HTML elements as objects	
+	
+	Properties for all HTML elements
+	
+	Methods for all HTML elements
+	
+	Events for all HTML elements
+
+
+
+* When a web page is loaded, the browser creates a Document Object Model of the page.
+
+		I. The HTML DOM model is constructed as a tree of Objects:
+
+		HTML is used to structure the web pages and Javascript is used to add behavior to our web pages. 
+		When an HTML file is loaded into the browser, the javascript can not understand the HTML document directly. 
+		So, a corresponding document is created(DOM). 
+		DOM is basically the representation of the same HTML document but in a different format with the use of objects.
+		
+
+		II. DOM is a way to represent the webpage in a structured hierarchical way so that it will become easier for programmers and users to glide through the document. 
+		With DOM, we can easily access and manipulate tags, IDs, classes, Attributes, or Elements of HTML using commands or methods provided by the Document object.
+		
+
+		III. The Document Object Model (DOM) is a programming interface for HTML(HyperText Markup Language) and XML(Extensible markup language) documents. 
+		It defines the logical structure of documents and the way a document is accessed and manipulated. 
+
+
+-----------------------------------------------------------------------------------------------------------------------
