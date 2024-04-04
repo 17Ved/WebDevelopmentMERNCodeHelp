@@ -1,0 +1,100 @@
+1. git log - to know how many commits has occurred inside a repository. This gives us a top commit records and then old commits gradually.
+
+2. git log -4 - if you want to see latest 4 commits , "this no. -4 can vary", you can also use -3 - for latest 3 commits.
+
+3. git log -p - if you want to see commit and changes that you've made inside a file. / also gives you output of git diff command.
+
+4. git log --oneline - to see commits with its messages in oneline. also displays first 7 characters of commit id.
+
+5. git log --stat - to see commits and the files which we've modified inside that commit.
+
+6. git show "commit id" - to see changes under a particular commit.
+
+7. git restore "file name" - To restore changes of latest commit/ top commit (head->master).
+
+8. git commit -am "commit name" - to add and commit changes at the same time.
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+(head -> master) - Initially head points to empty repository , If you commit any changes, then head points to latest commit(file).
+
+
+Create a .gitignore file inside your repo - mention paths or extension of a file that you don't want to get tracked by git.
+example - *.txt - will ignore all txt files.
+
+
+.git - file inside a repo is created when you "init git" on a folder - this file contains metadata of that repository.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* Branching, merging and tagging - 
+
+1. Branching - Use a branch to isolate development work without affecting other branches in the repository. Each repository has one default branch, and can have multiple other branches. 
+	    Branches allow you to develop features, fix bugs, or safely experiment with new ideas in a contained area of your repository.
+            You always create a branch from an existing branch(master). Typically, you might create a new branch from the default branch of your repository. 
+
+		git branch 		      		  - shows you all current branches available.
+		git branch "branch name"      - to create a branch from *master branch.
+		git checkout "branch name"    - switch to whatever branch you've created.
+		git checkout -b "branch name" - by using -b, we create new branch & it also automatically switches to that branch.
+
+
+2. Merging - Merge a pull request into the upstream branch when work is completed. Anyone with push access to the repository can complete the merge.
+		
+		git merge "branchname" 	      - to merge the branch to main branch(master in our case), after work is completed.
+		git branch -d "branchname"    - to delete the branch, after merging it into main branch.
+		
+If you're adding some features in main branch, and it gives conflict error of --> CONFLICT (content): Merge conflict in prog.cpp  
+										  Automatic merge failed; fix conflicts and then commit the result.
+Then fix this conflict error by editing the main branch code. And then add and commit changes
+
+
+
+3. Tagging - tag a specific commit.
+
+		git tag -a "tag name" "commit id"  - to give a tag to specific commit to identify it.
+		git tag -d "tag name"		   - to delete a tag from commit.
+		
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+* Stash - 
+You can temporarily save your changes without committing them to a branch by stashing the changes in GitHub Desktop.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+git commit --amend				- amends only the most recent commit(head). amends the message of commit
+git revert "commit id"  		- revert given commit.				Esc + Shift + Colon - wq
+
+git reset --soft "commit id"	- deletes commit (dangerous command). Removes the commit history, and points the head to the commmit that you want. (recommended option).   This option moves HEAD back to the specified commit, undoes all the changes made between where HEAD was pointing and the specified commit, and saves all the changes in the index. In other words, Git re-adds the changes as staged, ready to be committed again.
+
+git reset --hard 		- discards all local changes in working directory.
+git reset --mixed 		- local changes will remain intact in working directory, and it'll show them as a modifications. (recommended option)
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+git config --global user.name "vedant"		-- used to configure by which username and email you will be accessing this repository and committing changes
+git config --global user.email "vedantthombare792@gmail.com"
+git config --list
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
