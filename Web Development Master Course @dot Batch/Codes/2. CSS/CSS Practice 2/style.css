@@ -1,0 +1,50 @@
+.box {
+  width: 400px;
+  height: 200px;
+  border: 1px solid black;
+  background-image: linear-gradient(aqua, yellow);
+  background-image: linear-gradient(to right, aqua, yellow);
+  background-image: linear-gradient(to left, aqua, yellow);
+  background-image: linear-gradient(to bottom, aqua, yellow);
+  background-image: linear-gradient(to top, aqua, yellow);
+  background-image: linear-gradient(to bottom right, aqua, yellow);
+  background-image: linear-gradient(to top left, aqua, yellow);
+  background-image: linear-gradient(180deg, aqua, yellow);
+  background-image: linear-gradient(230deg, aqua, yellow, brown);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0),
+    rgba(0, 0, 255, 1)
+  );
+  background: repeating-linear-gradient(
+    to bottom,
+    lightpink,
+    lightpink 5px,
+    white 5px,
+    white 10px
+  );
+
+  background-image: linear-gradient(orange, white, green);
+}
+
+.rad {
+  width: 200px;
+  height: 300px;
+  border: 1px solid black;
+  background-image: radial-gradient(aqua, yellow, brown);
+  background-image: radial-gradient(circle, aqua, yellow, brown);
+  background-image: radial-gradient(aqua 5%, yellow 10%, violet 40%);
+  background: repeating-radial-gradient(
+    powderblue,
+    powderblue 8px,
+    white 8px,
+    white 16px
+  );
+}
+
+.cone {
+  height: 100px;
+  width: 200px;
+  border: 1px solid black;
+  background-image: conic-gradient(lightpink, violet, powderblue);
+}

@@ -1,0 +1,12 @@
+p {
+  color: maroon;
+  font-size: larger;
+}
+
+/* Example of External CSS */
+#sp {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: bisque;
+  font-size: x-large;
+}
