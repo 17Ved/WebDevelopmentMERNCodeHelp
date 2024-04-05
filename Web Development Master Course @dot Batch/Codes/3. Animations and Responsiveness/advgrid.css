@@ -1,0 +1,19 @@
+.container {
+  height: 700px;
+  background-color: yellow;
+  border: 1px solid red;
+  display: grid;
+  gap: 10px;
+
+  /* grid-auto-rows: minmax(100px, auto);        minimum 100px size of row, maximum auto size */
+  grid-template-columns: repeat(4, 1fr);
+  /*grid-template-rows: repeat(2, 1fr);*/ /*If we specify no. of rows only for that rows size will be maintained, 
+    remaining rows will get squeezed*/
+
+  grid-auto-columns: minmax(70px, auto);
+}
+
+.box {
+  background-color: aqua;
+  border: 1px solid green;
+}
