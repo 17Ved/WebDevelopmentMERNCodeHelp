@@ -1,0 +1,1098 @@
+JS [DOM Manipulation + Modern JS]	-
+
+	1. Window - window object
+	2. DOM 	  - Document Object Model 
+	3. BOM    - Browser Object Model
+
+
+	1.
+		Window - 
+
+			Window is a global object.
+
+			Created by browser.
+
+			Represents a browser window.
+
+			WINDOW - consists of DOM, BOM & Core JS like array, objects, functions.
+
+			window is Top level entity.   
+
+			controls browser window.
+
+
+			The Window interface represents a window containing a DOM document; the document property points to the DOM document loaded in that window.
+
+			A global variable, window, representing the window in which the script is running, is exposed to JavaScript code.
+
+			The window object in JavaScript stands for the current web page that is being seen in a browser window. 
+
+			It gives access to the browser’s methods and attributes as the global object in the browser environment. 
+
+			The window object is the global object in the web browser environment.
+
+			More - https://www.geeksforgeeks.org/window-object-in-javascript/
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+    2.
+    	DOM - Document Object Model
+
+    	Converting HTML document to a single JS object. Called as(document).
+
+    	Tree like structure(root element then child element)
+
+    	When an HTML file is loaded into the browser, the javascript can not understand the HTML document directly. 
+    	So, a corresponding document is created(DOM). DOM is basically the representation of the same HTML document but in a different format with the use of objects.
+
+    	The Document Object Model (DOM) is a programming interface for HTML(HyperText Markup Language) and XML(Extensible markup language) documents. It defines the logical structure of documents and the way a document is accessed and manipulated.
+
+    	DOM is a way to represent the webpage in a structured hierarchical way so that it will become easier for programmers and users to glide through the document. 
+
+
+    	we can access our document's body, head, script by - 
+
+    	 	document.body, document.scripts, document.head, e.t.c
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+    Process of DOM formation -->
+
+    	first there are only characters in HTML document, 
+
+    	so these characters are converted to tags, when we write that characters inside <>, e.g. <html>
+
+    	then these tags are converted to Tokens using Tokenizer
+
+    	then tokens are converted to Nodes (by a process)
+
+    	finally DOM gets created.
+
+    	Flow -->
+    	character -> tags -> token (tokenizer) -> nodes -> DOM
+
+    	How DOM looks like - 
+
+    		Document
+			└── html (Root)
+			    ├── head (element)
+			    │   ├── title (element)
+			    │   └── meta
+			    ├── body(element)
+			    │   ├── h1
+			    │   ├── p
+			    │   ├── img
+			    │   └── ul
+			    │       ├── li
+			    │       ├── li
+			    │       └── li
+			    └── script
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+    3. BOM - 
+
+    	It allows JS to talk to browser about matters other than content of the page. 
+
+    	The Browser Object Model (BOM) is a browser-specific convention referring to all the objects exposed by the web browser. 
+
+    	The BOM allows JavaScript to “interact with” the browser. 
+
+    	The object of the window represents a browser window and all its corresponding features. 
+
+    	A window object is created automatically by the browser itself. 
+
+    	Java Script’s window.screen object contains information about the user’s screen. 
+
+    	It can also be written without the window prefix. 
+
+		Properties:
+
+			screen.width
+			screen.height
+			screen.availWidth
+			screen.availHeight
+			screen.colorDepth
+			screen.pixelDepth
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* getelementbyid() - 
+	
+	The getElementById() method returns an element with a specified value. 
+	The getElementById() method returns null if the element does not exist. 
+	The getElementById() method is one of the most common methods in the HTML DOM. 
+	It is used almost every time you want to read or edit an HTML element.
+
+
+	The getElementById() method of the Document interface returns an Element object representing the element whose id property matches the specified string. 
+
+	Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+
+	*NOTE - 
+
+		1. always call getElementById method on document object
+		e.g. document.getElementByID('heading')
+
+		2. it always return a single object (because 'id' is unique for every element)
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* getElementsByClassName() - 
+	
+	The getElementsByClassName() method of Document interface returns an array-like object(html collection) of all child elements which have all of the given class name(s).
+
+
+* Trick - 
+	if you select a object while inspecting it on browser and write $0, then it'll give you that object
+
+	you can also equate this $0 to a variable and perform different operations.
+
+
+
+To Acess Element -
+ 	- getElementById()
+ 	- getElementByClassName()
+ 	- getElementByTagName()
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* querySelector - 
+
+	always return single object (also in case of multiple same named object)
+	
+	The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
+
+	querySelector('#header') - returns 'id' header
+	querySelector('.header') - returns 'class' header
+	querySelector('header')  - returns 1st object of header tag  
+	
+
+	The above is just like CSS selector
+
+	can be equated to a variable
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+* querySelectorAll - 
+	 
+	when we want multiple elements
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Update existing Content - 
+	
+	we've 4 properties here - 
+
+		.innerHTML
+		.outerHTML
+		.textContent
+		.innerText
+
+
+
+	.innerHTML -
+
+		It is used to set the innerHTML property.
+
+		The Element property innerHTML gets or sets the HTML or XML markup contained within the element.
+
+		gets an element / all of its descendants
+
+		sets an element HTML content
+
+
+	.outerHTML - 
+
+		The outerHTML property of the DOM interface gives the HTML fragment of that element. It not only gives the content but the whole HTML structure of the element. It can also be used to replace the HTML structure of the element.
+
+
+
+	.textContent - 
+
+		Gives textual content inside html tag and it's descendants.  
+
+		in .innerHTML if we write tag inside element, then our inside tags gets rendered.
+
+		But in .textContent inside tag doesn't get rendered, it is cosidered as text and gets printed as it is.
+
+
+
+	.innerText - 
+
+		Gives textual content inside html tag and it's descendants. 
+
+		if suppose any element have display hidden, then it'll not be visible using .innertext method
+
+		but in .textcontent method it'll be visible
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Adding new element / content - 
+	
+	Adding new element using JS.
+
+	createElement();
+
+	 - In an HTML document, the document.createElement() method creates the HTML element specified by tagName, or an HTMLUnknownElement if tagName isn't recognized.
+
+	 	e.g. - 
+	 	createElement(tagName)
+		createElement(tagName, options)
+
+	After creating element using createElement(), we've to append / add that new child element to the parent, using appendChild() method.
+
+	child element get added at the end of that class.
+
+
+	example - 
+
+		let content = document.querySelector('.paraclass')
+
+		let newpara = document.createElement('p')
+
+		newpara
+
+		content.appendChild(newpara);
+
+		content
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+* Creating Text-Node - Document: createTextNode() method
+	
+	Creates a new Text node. This method can be used to escape HTML characters.
+
+	A string containing the data to be put in the text node.
+
+	example - 
+
+		let mypara = document.createElement('p');
+		mypara.textContent = 'I am the text';
+		content.appendChild(mypara);
+
+
+	but we know that newly created element is added at the last.
+
+	So, to add that element at our desired position, we'll use : innerAdjacentHtml tag.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* innerAdjacentHtml - 
+	
+	Element: insertAdjacentHTML() method : 
+		The insertAdjacentHTML() method of the Element interface parses the specified text as HTML or XML and inserts the resulting nodes into the DOM tree at a specified position.
+
+		- has to be called with 2 argument.
+		- 1st location/position.
+		- 2nd HTML text to be inserted.
+			
+
+	Syntax - 
+
+		insertAdjacentHTML(position, text)
+
+	In position - we've 4 values 
+
+	 	1. beforebegin
+	 	2. afterbegin
+	 	3. beforeend
+	 	4. afterend
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Node: removeChild() method :
+
+	The removeChild() method of the Node interface removes a child node from the DOM and returns the removed node.
+
+	Exactly opposite of appendChild() method.
+
+	We should know parent element.
+
+	The child element to be removed.
+
+	Syntax - 
+
+		parent.removeChild(childElement);
+
+
+	If you don't know who the parent is - then use following syntax - 
+	parentnode = child.parent; // to find parent
+
+	let childnode = child.parent.removeChild(child);
+
+***************************** THE ABOVE ALL CONTENT IS FOR HTML, SO THAT WE CAN CHANGE OUR HTML USING JS ****************************************
+
+
+
+
+
+
+
+
+***************************** NOW LET'S TALK ABOUT CSS, HOW TO CHANGE IN CSS USING JAVASCRIPT ****************************************
+
+
+* Style page content - 
+	
+	- .style 
+	- .cssText
+	- .setAttribute
+	- .className
+	- .classList
+
+
+	example - 
+
+		.style - 	
+
+			content.style.color = 'red';
+
+			content.style.backgroundColor = 'white';
+
+
+	But with this strategy, you can modify only one css property at a time.
+
+
+		.cssText - 
+			The cssText property sets or returns the contents of a style declaration as a string.
+
+
+			example - 
+			content.style.cssText = 'color:green; background-color:yellow; font-size:4em;'
+
+
+	Using cssText, you can modify multiple css property at a time.
+
+
+
+		.setAttribute -
+
+			The setAttribute() method sets a new value to an attribute.
+
+			If the attribute does not exist, it is created first. 	
+
+			example - 
+			content.setAttribute("style", "background-color:red;");
+
+			You can also use .setAttribute to set Id or new Id of a class, like - 
+
+			content.setAttribute("id", "NewHeadingID");
+
+			In short, setAttribute can be used not only for setting css properties but also for setting new values/id's
+
+
+
+		.className - 	
+
+			The className property of the Element interface gets and sets the value of the class attribute of the specified element.
+
+			The className is the property of an element that returns a space-separated list of CSS classes of the element as a string:
+
+			Syntax - 	
+			element.className
+
+			typeof content.className
+			'string' - return string value
+
+			returned classes names are space separated, in order to edit them we've to convert them into array first.
+
+			To modify them we first use split method 
+
+				-> content.className.split(' ');
+
+			To solve this issue we've .classList.
+
+
+
+		.classList -
+
+			The Element.classList is a read-only property that returns a live DOMTokenList collection of the class attributes of the element. This can then be used to manipulate the class list.
+
+			Using classList is a convenient alternative to accessing an element's list of classes as a space-delimited string via element.className.
+
+			returns array of classes
+
+			iterate using for loop, remove, add(push), toggle(), contains()
+
+			The classList property returns the CSS classnames of an element.
+
+			The classList property returns a DOMTokenList.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Browser Events - 	
+	
+	we use monitorEvent() method to monitor events that happens in backend in browser window.
+
+	This method will let us see different events, that are occurring.
+
+	If you don't want to see specific events, then you can use
+
+		unmonitorEvent(); method
+
+
+
+	** Eventlistner - 
+
+		eventTarget -> Node -> Element
+
+		Here, eventTarget is an interface(blueprint), which is implemented by object that can receive events & may have listeners for them.
+
+		Node inherits all the properties of eventTarget
+
+		And so Element
+
+
+		EventTarget, has 3 methods - 	
+
+			1. addEventListener() - 
+			2. removeEventListener() - 
+			3. dispatchEventListener() -
+
+		Action has to be taken, after an event fires defines eventlistener.
+
+		EventTarget is top level interface, which has no parent.
+
+			eventTarget -> Node -> Element
+
+		Node inherits from eventTarget.
+
+		Element inherits from Node.
+
+		So, Node and Element are child of EventTarget.
+
+
+		1. addEventListener() -
+
+		The addEventListener() method of the EventTarget interface sets up a function that will be called whenever the specified event is delivered to the target.
+
+			Means = listen to event, respond to event, hook into event
+
+				pseudocode - 	
+
+					<eventTarget(component)>.addEventListner(<event-to-listen-for(event type)>, <function-to-run-when-event-happen>)
+
+
+				Example - 
+
+					let content = document.querySelector('h1');
+
+					content.addEventListener('click', function(){
+							content.style.background = 'red'; 
+					});
+
+		Common targets are Element, or its children, Document, and Window, but the target may be any object that supports events (such as XMLHttpRequest).
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Type Coercion - 
+		
+		Type Coercion refers to the process of automatic or implicit conversion of values from one data type to another. This includes conversion from Number to String, String to Number, Boolean to Number etc.
+
+		Loose equality (==) - allows type coercion,
+		Strict equality(===) - do not allows type coercion
+
+		
+
+ 
+		2. removeEventListener() - 
+
+			The removeEventListener() method of the EventTarget interface removes an event listener previously registered with EventTarget.addEventListener() from the target. 
+
+			The event listener to be removed is identified using a combination of the event type, the event listener function itself, and various optional options that may affect the matching process; see Matching event listeners for removal.
+
+			removeEventListener requires - 
+				same target, same type, same function.
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Phases of an Event - 
+	
+	There are three different phases during the lifecycle of a JavaScript event.
+
+			1. Capturing Phase
+			2. At Target Phase
+			3. Bubbling Phase
+
+
+	They follow the same order as listed above.
+
+	Capturing Phase is when the event goes down to the element. The target phase is when the event reaches the element and the Bubbling phase is when the event bubbles up from the element.
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* The Event Object - 
+	
+	When an event occurs, .addeventlistener() function get event object through which it gets lot of information about that event.
+
+		example - 	
+
+			const content = document.querySelector("#wrapper");
+
+				content.addEventListener("click", function (event) {
+				  console.log(event);
+				});
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* The Default Action - 	
+	
+	Sometimes, you may want to prevent the default action of an event from occurring. 
+	For example, you may want to perform some custom behavior instead of the default action, or you may want to prevent the default action from happening altogether. 
+	To prevent such default action of an event in JavaScript, you can use the .preventDefault() method on the event object.  
+
+
+	Example - 	
+		// preventDefault 
+		let links = document.querySelectorAll('a');
+
+		let thirdlink = links[2];
+
+		thirdlink.addEventListener('click', function (event) {
+		  event.preventDefault();
+		  console.log('happens');
+		});
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* Performace -
+	
+	1. How to write effecient and performing code.
+	2. Measure speed of code.
+	3. Event loop.
+
+
+Standard way to measure how long your code takes to run - 
+	
+	For that we've 'performacce.now()' method. 
+
+
+	performance.now() - 
+
+	The performance.now() method returns a high resolution timestamp in milliseconds. 
+	
+	It represents the time elapsed since Performance.timeOrigin (the time when navigation has started in window contexts, or the time when the worker is run in Worker and ServiceWorker contexts).
+	
+	You can check the execution time of your code using this method.
+
+
+
+
+	** Reflow and Repaint - 
+
+		Reflow: 
+
+		Calculate the position and size of each visible node.
+		
+		Mathematical calculations like positioning, dimensions, e.t.c.
+
+		Reflow means re-calculating the positions and geometries of elements in the document. 
+
+		The Reflow happens when changes are made to the elements, that affect the layout of the partial or whole page. 
+
+		The Reflow of the element will cause the subsequent reflow of all the child and ancestor elements in the DOM.
+		
+		
+
+		Repaint: 
+
+		now, the browser will paint the renderTree on the screen.
+
+		Showing layout, pixel by pixel on display is 	Repaint.
+
+		The Repaint occurs when changes are made to the appearance of the elements that change the visibility, but doesn't affect the layout
+		
+		Eg: Visibility, background color, outline
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* Good Practice - 
+	Both Reflow and Repaints are an expensive operation. 
+
+	So, Fewer number of Reflows and Repaints considered as good practice.
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Document Fragment - 
+	
+	Light Weight document object, whichever additions happens in fragment does not have Reflows and Repaints.
+
+	The DocumentFragment interface represents a minimal document object that has no parent.
+
+	It is used as a lightweight version of Document that stores a segment of a document structure comprised of nodes just like a standard document. 
+
+	The key difference is due to the fact that the document fragment isn't part of the active document tree structure. 
+
+	Changes made to the fragment don't affect the document.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+* Single Threading - 	
+	
+	Processing of one command at a time.
+	
+	Javascript is a single-threaded language, meaning that just one line of code may be run at once.        (synchronous - executing code line by line).
+
+	Javascript is single-threaded because, originally, it was only a web browser scripting language created to serve the needs of a single user on a single window of the browser, eliminating the need for multithreading.
+
+
+	* Observations - 	
+
+		Does not execute multiple lines at the same time.
+
+		'run-to-completion' nature of code. (complete executing full code).
+
+		To check above observations, we use Call Stack.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Call Stack - 	
+	
+	A call stack is a way for the JavaScript engine to keep track of its place in code that calls multiple functions. 
+
+	It has the information on what function is currently being run and what functions are invoked from within that function…
+
+	When a script calls a function, the interpreter adds it to the call stack and then starts carrying out the function.
+	
+	Any functions that are called by that function are added to the call stack further up, and run where their calls are reached.
+	
+	When the current function is finished, the interpreter takes it off the stack and resumes execution where it left off in the last code listing.
+	
+	If the stack takes up more space than it was assigned, a "stack overflow" error is thrown.
+
+	More - 	https://www.javascripttutorial.net/javascript-call-stack/
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Event Loop - 	
+
+	Event loop: An event loop is something that pulls stuff out of the queue(event queue) and places it onto the function execution stack (call stack) whenever the function stack becomes empty.
+
+	JavaScript has a runtime model based on an event loop, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks. 
+
+	This model is quite different from models in other languages like C and Java.
+
+	All the Async Code in JS uses Event Loop.
+
+	Handling of this async code done by browser. 
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* setTimeout -
+	
+	The setTimeout() is a method of the window object. The setTimeout()  sets a timer and executes a callback function after the timer expires.	
+
+	example - 
+
+		setTimeout( function(){
+			console.log('Hi');
+		},4000);
+
+		Above code explains that, function() will execute after 4000 milliseconds.
+
+		parameters - 
+
+			setTimeout(function to run, time);
+
+
+		* No guarantee that, this function will execute after 4000 milliseconds.
+
+		* This is minimum time after which our function will be executed.
+
+
+	JavaScript SetTimeout and SetInterval are the only native function in JavaScript that is used to run code asynchronously, it means allowing the function to be executed immediately, there is no need to wait for the current execution completion, it will be for further execution.
+
+	JavaScript setTimeout() Method: This method executes a function, after waiting a specified number of milliseconds. 
+
+
+	* Points to note ->
+		1. Improving page responsiveness: By breaking down the task into smaller chunks and executing each chunk with a delay, other tasks can be processed in between each chunk, keeping the page responsive.
+		
+		2. Preventing long-running scripts: By executing a heavy task in smaller chunks with a delay, the browser can process other tasks between each chunk, preventing the script from running for too long.
+		
+		3. Allowing interruption: If a user wants to interact with the page while a heavy task is running, the task can be interrupted or cancelled if it is executed in smaller chunks with a delay. This can prevent frustration and improve the overall user experience.
+		
+		4. Managing resources: By breaking down a heavy task into smaller chunks and executing each chunk with a delay, the browser can manage its resources more efficiently. The task can be executed in a way that maximizes the use of available resources while minimizing its impact on other tasks.
+
+	In conclusion, using setTimeout() to break down heavy tasks into smaller chunks can improve web performance by making pages more responsive, preventing long-running scripts, allowing interruption, and managing resources more efficiently.
+
+	By utilizing this method, developers can enhance the user experience and create a more efficient and effective website.
+
+	setTimeout() is an asynchronous function, meaning that the timer function will not pause execution of other functions in the functions stack. In other words, you cannot use setTimeout() to create a "pause" before the next function in the function stack fires.
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Asynchronous JS - 
+	
+	"async and await make promises easier to write"
+
+		async makes a function return a Promise
+
+		await makes a function wait for a Promise
+
+
+	The keyword async before a function makes the function return a promise:
+
+	The await keyword can only be used inside an async function.
+
+	The await keyword makes the function pause the execution and wait for a resolved promise before it continues:
+
+	
+	* Features of async code - 
+
+		clean & concise.
+		better error handling.
+		easier debugging.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Promises - 	
+	
+	The Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
+
+	If we want to Parallely execute async code in background.
+
+	A Promise is in one of these states:
+
+		pending: initial state, neither fulfilled nor rejected.
+		
+		resolve / fulfilled: meaning that the operation was completed successfully.
+		
+		rejected: meaning that the operation failed.	
+
+
+	Syntax - 	
+
+		let p = new Promise(callback function (resolve, reject){
+			// if function executes successfully - status will be resolved / fulfilled.
+
+			// if function doesn't executes successfully - status will be rejected. (error)
+		)}; 
+
+
+	* we can apply two methods on Promise. 
+
+		1. then()  - handles return value after resolving.
+		If you want to do something after succesfully executing resolve, then use then().
+
+		2. catch() - for error handling
+
+	* Promise Chaining: 
+
+	Promise Chaining is a simple concept by which we may initialize another promise inside our .then() method and accordingly we may execute our results. The function inside then captures the value returned by the previous promise.
+
+	Sometimes, you want to execute two or more related asynchronous operations, where the next operation starts with the result from the previous step. 
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* async / await - 	
+	
+	Special syntax used to work with promises.
+
+	What is the difference between async and await functions?
+	
+		The async keyword is used to define an asynchronous function, which returns a AsyncFunction object. 
+
+		The await keyword is used to pause async function execution until a Promise is fulfilled, that is resolved or rejected, and to resume execution of the async function after fulfillment.
+
+		async function returns promises.
+
+
+		More - https://www.geeksforgeeks.org/async-await-function-in-javascript/
+
+
+		Example - 
+		async function abcd(){
+		  	return 17;
+		}
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Fetch API -	
+	
+	The Fetch API provides an interface for fetching resources (including across the network). It is a more powerful and flexible replacement for XMLHttpRequest.
+
+	Fetch API - returns a promise.
+
+	post - push - send
+	get - fetch - receive
+
+
+
+	fetch() -
+		
+		The fetch() method used to fetch a resource.
+
+		The Fetch API is a modern interface that allows you to make HTTP requests to servers from web browsers.
+
+		In addition, the Fetch API is much simpler and cleaner. It uses the Promise to deliver more flexible features to make requests to servers from the web browsers.
+
+		The fetch() method is available in the global scope that instructs the web browsers to send a request to a URL.
+
+		.status
+		.text
+		.json
+		.ok
+
+		Syntax - 	
+
+		 	const response = await fetch("http://example.com/movies.json", [other options]);
+
+		 	Here [other options] - can be used for authentication purpose.
+
+		 	Like, it can contain some secret key for authentication.
+
+		More - https://www.javascripttutorial.net/javascript-fetch-api/
+
+
+
+		CORS - 
+		Cross-origin resource sharing (CORS) is a browser security feature that restricts cross-origin HTTP requests that are initiated from scripts running in the browser.
+
+		CORS (Cross-Origin Resource Sharing) is a mechanism by which data or any other resource of a site could be shared intentionally to a third party website when there is a need. Generally, access to resources that are residing in a third party site is restricted by the browser clients for security purposes.
+
+		More - https://geeksforgeeks.org/cross-origin-resource-sharing-cors/
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* What is json? - 	
+	
+	JSON stands for JavaScript Object Notation
+
+	JSON is a lightweight format for storing and transporting data
+
+	JSON is often used when data is sent from a server to a web page
+
+	JSON is "self-describing" and easy to understand 
+
+	Learn More - https://www.w3schools.com/whatis/whatis_json.asp
+
+
+* JavaScript JSON stringify() Method - 
+	
+	More - 
+
+		https://www.geeksforgeeks.org/javascript-json-stringify-method/
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Closures - 	
+	
+	A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). 
+
+	In other words, a closure gives you access to an outer function's scope from an inner function. 
+
+	In JavaScript, closures are created every time a function is created, at function creation time.
+
+	example - 	
+
+		outer(){
+		-------
+		-------
+		-------
+			inner(){
+				---
+				---
+			}
+			return inner;
+		}
+		let ans = outer();
+		ans();
+
+
+		So, closure for inner() function will be, inner() function itself, and the references of outer() / parent function.
+
+		References includes variable declared inside outer() function and e.t.c.
+
+		*Things to remember while dealing with nested functions -
+
+			Nested Function -> Closure -> References(Not Copy).
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Export module -	
+	
+	The export declaration is used to export values from a JavaScript module. Exported values can then be imported into other programs with the import declaration or dynamic import. 
+
+	The value of an imported binding is subject to change in the module that exports it — when a module updates the value of a binding that it exports, the update will be visible in its imported value.
+
+	More - https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export
+
+	https://www.w3schools.com/js/js_modules.asp
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* Classes - 
+	
+	Classes are similar to functions. Here, a class keyword is used instead of a function keyword. Unlike functions classes in JavaScript are not hoisted. The constructor method is used to initialize. The class name is user-defined.
+
+	Classes are a template for creating objects. They encapsulate data with code to work on that data. Classes in JS are built on prototypes but also have some syntax and semantics that are unique to classes.
+
+	More - https://www.geeksforgeeks.org/javascript-classes/
+
+	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
