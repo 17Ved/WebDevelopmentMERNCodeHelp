@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS styling</title>
+    <style>
+      #Internal {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-stretch: expanded;
+      }
+
+      /* Specificity explained */
+      p {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial,
+          sans-serif /*!important*/;
+      }
+
+      .paraaf {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      #prsf {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+
+      /* Another example of specificity */
+      div {
+        color: yellowgreen;
+        font-size: larger;
+      }
+      .dv {
+        color: goldenrod;
+        background-color: blanchedalmond;
+      }
+      #dv2 {
+        color: gray;
+      }
+    </style>
+
+    <!-- Example of External CSS  -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Example of Inline CSS -->
+    <p style="font-family: Verdana, Geneva, Tahoma, sans-serif">
+      This is Inline CSS
+    </p>
+
+    <!-- Example of Internal CSS -->
+    <p id="Internal">Example of Internal CSS</p>
+
+    <!-- Example of External CSS  -->
+    <span id="sp"> THIS IS SPANNING ONE </span>
+
+    <p
+      class="paraaf"
+      id="prsf"
+      style="font-family: 'Times New Roman', Times, serif"
+    >
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, incidunt!
+    </p>
+    <br />
+    <div class="dv" id="dv2">Division</div>
+    <!-- for above <div> dv2 color will apply, dv background-color will apply & div font-size will apply -->
+  </body>
+</html>

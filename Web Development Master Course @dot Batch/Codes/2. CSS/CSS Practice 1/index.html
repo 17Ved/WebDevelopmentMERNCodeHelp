@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Practice</title>
+    <style>
+      p {
+        color: maroon;
+        font-size: larger;
+      }
+      h2 {
+        background-color: burlywood;
+      }
+      table,
+      tr,
+      td,
+      th {
+        border: 10px solid black;
+      }
+      .one {
+        color: greenyellow;
+      }
+      .sec {
+        color: blueviolet;
+      }
+      .hd1 {
+        font-size: small;
+      }
+      .hd2 {
+        font-size: larger;
+      }
+
+      #sub {
+        color: aqua;
+      }
+      #sub:hover {
+        /* Pseudo class hover*/
+        color: aqua;
+        background-color: darkgreen;
+      }
+      #para {
+        color: chocolate;
+        background-color: aqua;
+        display: inline;
+      }
+      a:hover {
+        color: darkgreen;
+      }
+      * {
+        color: green;
+      }
+
+      a[class~="logo"] {
+        /* Ex. of Attribute Selector*/
+        background-color: brown;
+      }
+      div > p {
+        /* Ex. of Combinator/ Nested selector*/
+        background-color: yellow;
+      }
+    </style>
+
+    <!-- Below is another way of doing css to the html document by creating new style.css file and linking it to the index.html -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <p>This text is in maroon color</p>
+    <p>This text is in maroon color</p>
+    <p>This text is in maroon color</p>
+
+    <h2>This is heading one</h2>
+    <h2>This is heading second</h2>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+      </tr>
+      <tr>
+        <td>Vedant</td>
+        <td>SDE</td>
+      </tr>
+      <tr>
+        <td>Jayesh</td>
+        <td>Software Engg.</td>
+      </tr>
+    </table>
+
+    <p class="one">This is division one</p>
+    <p class="one">This is division second</p>
+    <p class="sec">This is division third</p>
+
+    <h1 class="hd1">HEading 1</h1>
+    <h2 class="hd1">HEading 2</h2>
+    <h3 class="hd1">HEading 3</h3>
+    <h4 class="hd2">HEading 4</h4>
+    <h5 class="hd2">HEading 5</h5>
+    <h6 class="hd2">HEading 6</h6>
+
+    <button id="sub" type="submit">Submit</button>
+    <p id="para">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, aut.
+    </p>
+    <br />
+
+    <!-- Pseudo Class -->
+    <a href="https://thecodehelp.in/"> open code help</a>
+    <a class="logo" href="https://thecodehelp.in/"> open code help</a>
+    <a class="logo" href="https://thecodehelp.in/"> open code help</a>
+    <br /><br />
+
+    <div>
+      <div>This is div</div>
+      <p>Thiis is para</p>
+      <p>Thiis is para</p>
+      <p>Thiis is para</p>
+    </div>
+  </body>
+</html>

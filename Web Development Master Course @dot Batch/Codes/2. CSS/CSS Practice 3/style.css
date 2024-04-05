@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: blueviolet;
+  height: 500px;
+  border: 1px solid black;
+  display: grid;
+  /* To add columns in grid  */
+  /* grid-template-columns: 200px 200px 200px; */
+
+  /* To add grid columns of equal sizes - 2 ways
+    1st way -  */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  /* 2nd Way  */
+  /* grid-template-columns: repeat(3, 1fr); */
+
+  /* You can also give 1st column different size and rest columns with same size  */
+  /* grid-template-columns: 100px repeat(3, 1fr); */
+
+  /* You can also give 1st & last column different size and rest columns with same size  */
+  /* grid-template-columns: 100px repeat(2, 1fr) 200px; */
+
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* Below line is same as above line  */
+  grid-template-columns: 150px 1fr 1fr;
+  /* on above line 150px determines height columns */
+
+  /* Above all columns properties will be same for rows too  */
+  /* grid-template-rows: 90px 90px 90px 90px; */
+  /* grid-template-rows: repeat(4, 1fr); */
+  /* Below line is same as above line  */
+  grid-template-rows: 30px 1fr 30px;
+  /* on above line 30px determines height of rows  */
+
+  /* To add gap/gutter between columns and rows  */
+
+  gap: 15px;
+  gap: 5px;
+}
+
+.box {
+  background-color: aquamarine;
+  border: 1px solid black;
+  /* width: 50px; */
+  /* height: 80px; */
+}
+
+/* To extend a column into other column  , you've to disable width property in order 
+to extend a column into another column, if box width is specified - column will not extend*/
+#box1 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+/* To extend a row into other row  
+same as column 
+
+you've to disable height property in order 
+to extend a row into another row, if box height is specified - row will not extend*/
+
+#box3 {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  height: 50px;
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+#box4 {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  height: 400px;
+}
