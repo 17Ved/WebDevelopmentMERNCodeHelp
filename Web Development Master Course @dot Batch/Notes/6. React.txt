@@ -1,0 +1,918 @@
+** REACT BASICS - 
+
+
+WHAT IS REACT? - 
+	
+	react is a javascirpt library, the soul purpose of react is to create UI (user interface), frontend.
+
+
+WHAT IS LIBRARY? - 
+	library is a segment of code that contains different functionality (like - predefined functions).
+
+	so, your code can invoke those functionalities.
+
+
+**IMP NOTE - 
+	
+	react is all about components. and it's architecture is component based.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+WHAT IS COMPONENT? -
+	
+	a resusable piece of code, component is type of a function (which we use repeatedly in order to do our task).
+
+	by using component, you're creating your custom html element.
+
+	the simplest way to define a component is to write a javaScript function:
+
+
+WHY REACT? - 
+	
+	traditional approaches such as by using - js, html & css, we follows imperative approach. (step by step or line by line approach). 
+	we've to write more code, also we've to share more details(low level details).
+
+
+	but while dealing with react we've to only cosider about "end state". 
+	(line of code is less, less time). creation of UI is easy compared to js. 
+	this is known as declarative approach.
+	reusability,
+	do no repeat yourself (dry)
+	readability
+	separation of concern (one element will no bother others)
+	maintainability
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+SPA APPROACH - 
+	
+	single page application.
+	changes are made to single html page.
+	load single html file initially, then all changes made to that file will loaded dynamically.
+	offers more fast way to interact with UI.
+
+
+REACT ALTERNATIVES - 
+	
+	angular, vuejs...
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+COMPONENTS - 
+	
+	it is not mandatory that code of component should be resuable.
+
+	it can be used single time or multiple times, as per the need. 	
+
+
+SETUP STEPS - 	
+	
+	https://legacy.reactjs.org/docs/create-a-new-react-app.html
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+**OTHER INFO - 
+
+	package.json -
+		contains all dependencies and scripts that are required to run your project.
+
+		"react" & "react-dom" comprises of actual library, which we learn.
+
+
+	index.js - 
+		whenever the page loads(that single .html file), index.js is the first file that gets executed.
+
+		acts as a entry point for react applications.
+
+		in order to use components or any other elements inside index.js, we've to import it using "import" keyword.
+
+		for ex. - import './index.css';
+				  import App from './App';
+
+
+
+**IMP NOTE -
+	react's first component is known as App component. 
+
+	this App.js component resides in App.js file.
+
+	<App /> as a component here, is a function in App.js file.
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+NODE MODULES - 
+	
+	node modules contain third party packages, that you'll use in your project.
+
+	initially contains starter packs.
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+RENDER IN REACT - 
+	
+	react's goal is in many ways to render HTML in a web page.
+
+	react renders HTML to the web page by using a function called createRoot() and its method render().
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+SRC FOLDER - 	
+	
+	all the developement happens in src folder.
+
+	contains - app.js, index.css, index.js...
+
+PUBLIC FOLDER - 
+	
+	contains index.html - "root" element.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+**IMP - relation between these 4 files
+	
+	4) app.js - contains code which will be rendered (UI).
+
+	1) index.css - contains css configuration for index.js file 
+
+	2) index.js - this is the first file to execute, here react creates its own root & in order to create this root, it fetches this root element from index.html file's root. (index.js converts root div into reactroot ). then we renders our App component on this reactroot. it means our App component replaces our <div> root. 
+
+		ReactRoot -> render(App)
+
+	3) index.html - root -> 
+
+		
+	
+TYPE OF CODE - 
+*there are 2 types of code - 
+	
+	1. user-friendly - code which we writes / developer friendly.
+	
+	2. browser-friendly - js engine converts this user-friendly code into browser friendly code, which browser understands. browser understands(html,css,js).
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+**IMP NOTE - 
+	 
+	 in react, there is no valid javascript syntax, which we write.
+
+	 it uses a syntax known as "jsx", stands for javascript xml (format), which allows us to run out javascript code. 
+
+	 the file is not .js file, but it is acutally a .jsx file.
+
+	 this is basically html code inside javascript.
+
+
+npm start - 
+	 
+	 command here handles the conversion task, of code from user-friendly to browser friendly code.
+
+	 converts our react written code into browser friendly code(js, html...).
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+** in order to keep your code modular, we'll create a folder named as components and then one by one we'll add our components in that folder.
+	
+	Note: Always start component names with a capital letter. (while creating a component - initials should always be in capital letters).
+
+	React treats components starting with lowercase letters as DOM tags. 
+
+	For example, <div /> represents an HTML div tag, but <Welcome /> represents a component and requires Welcome to be in scope
+
+
+	ex - we're creating 'items' component.
+		 it's name should be - Item.js / Item.css
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+CREATION OF COMPONENT - 	
+	1. create .js file.
+	2. write a function in it.
+	3. if you want to use that function/component in another file, we export it in the same file.
+	4. and import it, in which we want to use that component.
+
+
+
+// syntax to create a component
+function Items(){ // created a component
+
+}
+
+// syntax to export component
+export default Items;       // exporting component
+
+
+**RULES WHILE USING COMPONENT -
+
+1. you've to export component.
+2. import that component in app.js.
+3. keep your all components in a single parent div or element.
+4. the components cannot be siblings of each other (causes error).
+5. Always start component names with a capital letter.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+function ItemsDate(){ 
+
+const month = "June";
+const day = 24;
+const year = 1987;
+
+NOTE - in order to use these values, of month, day, and year, we'll use {} to render/display value on UI.
+
+{to dynamically update data}
+
+	this process is also known as placeholdering.
+
+
+
+return (
+    <div className="mfg-date">
+      <span>{day}</span>
+      <span>{month}</span>
+      <span>{year}</span>
+    </div>
+  );
+}
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+**PROPS - (properties) - 
+	
+	props are arguments passed into react components.
+
+	props are passed to components via HTML attributes.
+
+	react Props are like function arguments in JavaScript and attributes in HTML.
+
+	for ex - 
+	function Welcome(props) {
+  		return <h1>Hello, {props.name}</h1>;
+  	}
+
+	this function is a valid React component because it accepts a single “props” (which stands for properties) object argument with data and returns a React element. 
+
+	we call such components “function components” because they are literally JavaScript functions.
+
+	if you write inside a component, by default it's not visible,
+
+	to make it visible, you've to create props.children for that component in which you're trying to shown the content.
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+EVENT HANDLING IN REACT - 	
+	
+	event handling in react is also done through props.
+
+	for ex - 
+
+	<button onClick={clickHandler}> Add to Cart </button>
+
+	clickHandler function - 
+
+		function clickHandler(){
+			console.log("button clicked");
+		}
+
+
+* addEventListener method is an imperative approach. which is not used in react.
+
+* in react, this is declarative approach.
+
+* all events in react are handled by props.
+	all props starts with 'on'.
+
+		for ex - onClick, onInput, onChange...
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+**STATE IN REACT - (useState)
+	
+	if you want to update your entered value on UI then we use 'state' in react.
+
+	for ex - initially, the value of title = excel,
+
+						but now we want to update it from excel to popcorn,
+
+						so, we'll assign title = popcorn, but by only declaring variable from title = popcorn, will not render changes 
+						on UI.
+
+						so we'll use state, in order to update that value on UI from excel to popcorn.
+
+						here, we're declaring our end state, that we want out title = popcorn. (declarative approach).
+
+
+	useState here, is a hook in react, 
+	hook - in react for now, consider it as utility functions, using which we can do different kind of things.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+*useState() function - 	
+	
+	we initialize our state by calling useState in our function component.
+
+	useState accepts an initial state and returns two values:
+
+		The current state.
+		A function that updates the state.
+
+		for ex - 
+
+			import { useState } from "react";
+
+			function FavoriteTitle() {
+  			const [title, setTitle] = useState("");
+			}
+			title, and setTitle are the 2 values that our useState function returns.
+
+			Explanation for above usestate syntax/code - 
+
+				The first value, title, is our current state.
+
+				The second value, setTitle, is the function that is used to update our state.
+
+				Lastly, we set the initial state to an empty string: useState("")
+
+				if we want to initialize our useState using something else's value, 
+
+					suppose let title = props.title;
+					 we want to initialize useState with props.title, instead of an empty string, like above.
+					 we'll write useState(props.title);
+
+					 final code will be - const [title, setTitle] = useState(props.title);
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+NOTE - if we want to communicate from parent to children, we use props.
+		
+			 also if we want to communicate from children to parent, in this case we also use props functions.
+
+			 passing from children to parent is known as - lifting state up 
+
+			 NOTE - if we're using any props to handle event, it is best practice to start the name of that props by - 'on', for ex- onSaveProduct, onSubmitHandler...
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+** USEEFFECT HOOK IN REACT - 
+	
+	useEffect is used to manage side effects.
+
+	The useEffect Hook allows you to perform side effects in your components.
+
+	useEffect accepts two arguments. The second argument is optional.
+
+	useEffect(<function>, <dependency>)
+
+
+	explanation - 
+
+		the component in which you've written useEffect hook, after (completing) rendering that component, the code inside useEffect will get execute.
+
+		In Short - after rendering your component, code inside useEffect will get executed.
+
+
+	*What is a Side Effects?
+
+		A side effect is a change that affects something outside the component being rendered.
+
+		any type of change which is happening,
+		outside your rendered component (anywhere on a windows) such as. DOM Update, is a side effect.
+
+		for ex - API Call, updating the DOM, updates, fetching data, updating title of document, modifying state of parent component,...
+
+		real life example - 
+
+			suppose you opens a new window tab, the size of window at the opening time is let's say - 712, 
+
+			then you drag that window from bottom or from side to make that window smaller than before,
+
+			now the value of window gets lower, let's say - 660, so we can say that by our dragging movement caused a  side effect (on that window).
+
+
+
+
+NOTE - so handling of side effects, is done through "useEffect" hook.
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+NOTE - 
+	
+	in react you can create components, by declaring function, which is known as functional component,
+
+	the second type of creating components, is class based components.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+3 LIFE CYCLE METHOD IN CLASS BASED COMPONENTS. 		
+		 1. ComponentsDid Mount
+		 2. ComponentsDiD Update
+		 3. ComponentsWill UnMount
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+** REACT INTERMEDIATE -
+
+
+* REACT FORMS - 
+	
+	forms in react saves state, we maintain a state in forms. using react hook - (usestate)
+
+	just like in HTML, React uses forms to allow users to interact with the web page.
+
+	In HTML, form data is usually handled by the DOM.
+
+	In React, form data is usually handled by the components.
+
+	When the data is handled by the components, all the data is stored in the component state.
+
+	You can control changes by adding event handlers in the onChange attribute.
+
+	We can use the useState Hook to keep track of each inputs value and provide a "single source of truth" for the entire application.
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* CONTROLLED COMPONENTS - 
+
+		means [maintaining state inside components]
+
+		all elements (suppose. input) will also maintain there own state inside them.
+ 
+ 
+		How?
+			- value, we'll use 'value' attribute here to store state of elements.
+
+
+		Why?
+			- 
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+** REACT-ROUTER -
+
+	- create react app doesn't include page routing.
+
+	react Router is the most popular solution.
+
+	To add React Router in your application, run this in the terminal from the root directory of the application:
+
+		npm i -D react-router-dom
+
+
+	single html file that changes dynamically, it doesn't redirect us to 2nd page, single page application.
+
+	*when we want to move from one page to another without refreshing the page          (dynamically loading content).
+
+	this is done through 'react-router'
+
+	so, this navigation from one page to another to another page is done through react router.
+
+	in react, different components gets loaded in single page. feels like navigating multiple pages, but it's not.
+
+	a framework through which you can navigate 
+	between multiple pages without refreshing the page.
+
+
+
+
+1st - install react router package -
+	
+	npm install react-router-dom
+
+
+2nd - use of browser router tag 
+	
+	linking of routes(path) to our browser for navigation purpose is done through browser router tag.
+
+	
+3rd - wrap your App component (inside index.js) in <BrowserRouter> tag.
+		
+			import { BrowserRouter } from "react-router-dom";
+
+		 		 	<BrowserRouter>
+    				<App />
+  				</BrowserRouter>
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+routing - 
+	 
+	 suppose, there are 4 pages,
+	 		home, about, contact, labs.
+
+	 so among these 4 pages, whichever page on which you want to go, there is a path need to be followed in order to go onto that page, this path is also known as route.
+
+	 so, in order to tell browser, that you need to follow this path to go to home page, or you need to follow that path to go to labs page, is done through <BrowserRouter> tag.
+
+
+
+
+4th - in order to create many routes, 
+	
+	we use <Routes> </Routes> inside our App.js
+
+
+	in order to create a single route,
+
+	we use <Route> </Route> tag.
+
+
+
+	e.g. - 
+				function App() {
+				  return (
+				    <div className="App">
+				      <Routes>
+				        <Route path="/" element={<div>Home Page</div>} />
+				      </Routes>
+				    </div>
+				  );
+				}
+
+				export default App;
+
+
+Home Page - whichever .jsx code is there will get rendered, when you'll react "/" this path.
+
+instead of "Home Page", it can be your component.
+
+
+
+
+for ex - routing more than one pages,
+
+
+
+					function App() {
+				  return (
+				    <div className="App">
+				      <Routes>
+				        <Route path="/" element={<div> <Home/> </div>} />
+				        <Route path="/support" element={<div> <Support/> </div>} />
+				        <Route path="/about" element={<div> <About/> </div>} />
+				        <Route path="/labs" element={<div> <Labs/> </div>} />
+				        <Route path="*" element={<div> <NotFound/> </div>} />
+				      </Routes>
+				    </div>
+				  );
+				}
+
+				export default App;
+
+
+
+NOTE - if none of above mentioned route/path is found, then to handle that situation we use "*", so if we encounter any different path which is not mentioned in <Route> path, it'll give us Not Found Page.
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+<Link> - 
+	
+	in html we use anchor tag, to link pages with each other, but in react router we use  <Link> tag from react router dom to link pages.
+
+
+<NavLink> - 
+	
+	functionality is same for Link and NavLink, but using only Link we cannot define on which page we currently are, so to solve this issue, NavLink applies an 'active class' on the page, on which you currently are.
+
+	always use NavLink instead of Link.
+	
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* NOTE - 
+	
+	here our "/" is home <Route>,
+	and other follows, "/about" path,
+	"/support" path,
+
+	so we can say that, Home is our Parent Route.
+	Home route works kind of like parent route here, and all others are children routes.
+
+	so we can do Nested Routing here.
+
+	Like this - 
+
+					<Routes>
+		        <Route path="/" element={<Home/>}> 
+		          <Route path="/support" element={<Support/>} />
+		          <Route path="/about" element={<About/>} />
+		          <Route path="/labs" element={<Labs/>} />
+		          <Route path="*" element={<NotFound/>} />
+		        </Route>
+		      </Routes>
+
+
+
+
+** but doing this can cause a problem -
+	
+	because we've defined Home as a Parent route,
+	it will not allow children route to render.
+
+	to solve this problem, we've to define 
+	<Outlet /> tag in our parent route.
+
+
+				const Home = () => {
+			  return (
+			    <div>
+			      <Outlet />
+			      This is Home Page
+			    </div>
+			  	);
+				};
+
+
+
+by implementing this, we will be able to see our children routes, alongwith home route
+
+this can be a problem - 
+		so in order to remove this home route, 
+		we'll use "index" here.
+
+
+
+steps to solve this problem -
+	
+	we'll create a MainHeader component,
+
+	then we'll copy paste our home component inside MainHeader component.
+
+	then remove outlet from home component
+
+	and will write code which we want to render.
+
+
+
+
+	*** writing "index" in a route, tells us that, this is default route. 
+
+
+
+			<Routes>
+        <Route path="/" element={<MainHeader/>}> 
+
+          <Route index element={<Home/>}/>					// default route
+
+          <Route path="/support" element={<Support/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/labs" element={<Labs/>} />
+          <Route path="*" element={<NotFound/>} />
+        </Route>
+      </Routes>
+
+
+
+
+NOTE - if none of mentioned route matches, then our default i.e. index element = {<Home/>} component will get rendered.
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+** useNavigate Hook in react - 
+	
+	useNavigate hook in react is used to navigate among different routes present.
+
+	to navigate back to previous pages we will use the React useNavigation Hook.
+
+
+	for ex. - 
+
+		suppose we write a button inside our labs page - 
+
+				return (
+		    <div>
+		      <div>This is Labs Page</div>
+		      <button onClick={clickHandler}>Move to about page</button>
+		    </div>
+		  	);
+
+
+		  	now, after clicking button, if we want to move to out 'about' page, we've to first write onClick handler 
+
+		  	onClick={clickHandler}
+
+
+		  	then, we'll write clickHandler function 
+
+					const navigate = useNavigate();
+					  function clickHandler() {
+					    // move to about page...
+					    navigate("/about");
+					 }
+
+
+
+
+ if we want to go one page back
+
+ we can write 
+
+ 			navigate(-1);
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+** CUSTOM HOOKS - 
+	
+		hooks are reusable functions.
+
+		when you have component logic that needs to be used by multiple components, we can extract that logic to a custom Hook.
+
+		custom Hooks start with "use". Example: useFetch.
+
+
+
+
+
+* we will be using axios instead of fetch() method to make our api call (http request), axios is secured way, and no need to convert data into json.
+	 
+	 - npm i axios 
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* CONTEXT API IN REACT - 	
+	
+	context means snapshot of data.
+
+	context API is used to pass global variables anywhere in the code. 
+
+	it helps when there is a need for sharing state between a lot of nested components. 
+
+	it is light in weight and easier to use, to create a context just need to call React.createContext(). 
+
+	no need to install other dependencies or third-party libraries like redux for state management.
+
+
+
+	* Why is context API used?
+
+	context API solves the problem of prop drilling in React. 
+
+	prop drilling occurs when data is to be passed between multiple layers before finally sending it to the required component. 
+
+	this makes the application slower. 
+
+	this problem is solved by Context API as it creates global variables to be used throughout the application without any middle components involved.
+
+	it is also easier to use than React Redux.
+
+
+Rules to use context API - 
+	
+	1. first you've to create context - createContext()
+	2. providing context - provider
+	3. consuming - consume
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+** REDUX IN REACT - 
+	
+		redux in react is used for state management, like 1. prop drilling and 2. context api.
+
+		redux is an easy way compared to context api and prop drilling.
+
+		redux is an open-source JavaScript library which was first introduced in 2015
+
+		redux is used by ReactJS for building the user interface and to manage the application state. 
+
+		The official React binding for Redux is React Redux which is used to read data from a Redux Store, and dispatch Actions to the Store to update data.
+
+
+		in redux (centralized store / global store), we've slices, which is used to manipulate states
+
+		a portion of data is referred as slices. 
+
+		in redux (centralized store / global store) we've slices, and in that slices, different different states are stored.
+
+
+
+
+		while creating a slice - we've to define 3 things, which are as follows - 
+
+				1. slice name, (we create a slice using CreateSlice() function). 
+				2. initial state,
+				3. reducer (functions).
+
+
+-----------------------------------------------------------------------------------------------------------------------
