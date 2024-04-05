@@ -1,0 +1,100 @@
+* Grid Area - 
+
+			shorthand notation for grid column start, grid row start, grid column end, grid row end
+			  /* grid-column-start: 1;
+			    grid-column-end: 4;
+
+			    grid-row-start: 1;
+			    grid-row-end: 3; */
+
+			    grid-area: 1/1/3/4; 		// the above 4 lines can be written in a single line
+			    							where - grid-row-start/grid-column-start/grid-row-end/grid-column-end  - respectively
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+* Grid Template Area - 
+			gird-template-area is the property used to name the rows and columns of a grid and to set its layout. 
+
+
+			 grid-template-areas: 
+		    "hd",
+		    "sidebr",
+		    "main",
+		    "ft";
+
+		    #header{
+			    grid-area: hd;
+			}
+			#footer{
+				grid-area: ft;
+			}
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+** Advanced Grid Concepts - 
+
+1. fr unit - fraction unit
+
+			Tracks can be defined using any length unit. 
+
+			Grid also introduces an additional length unit to help us create flexible grid tracks. 
+
+			The new fr unit represents a fraction of the available space in the grid container. 
+
+			The next grid definition would create three equal width tracks that grow and shrink according to the available space.
+
+
+
+
+2. Repeat Function -
+			The repeat() CSS function represents a repeated fragment of the track list, allowing a large number of columns or rows that exhibit a recurring pattern to be written in a more compact form.
+
+
+
+3. Grid-auto-rows: minmax() -
+			The grid-auto-rows CSS property specifies the size of an implicitly-created grid row track or pattern of tracks.
+			Used when we the no. of rows is unknown 
+			What will be the size of that respective row, will be specified by the minmax() function. In pixel(px)
+			You can generate unknown no. of rows using auto-rows
+
+			Example - 
+			grid-auto-rows: minmax(100px, auto);
+
+
+4. Grid-auto-columns: minmax() - same as rows 
+			The grid-auto-columns CSS property specifies the size of an implicitly-created grid column track or pattern of tracks.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+** GRID PROPERTIES - 
+
+	1. justify-content - start, end, center, space-between, space-evenly, space-around - parent
+	2. align-content - vertical axis - parent
+	3. align-items  - for parent container 
+	4. justify-self - according to horizontal axis - child  - used for specific box
+	5. align-self - according to vertical axis - child    - used for specific box
+	6. place-items - shorthand notation for justify content and align content - for parent
+	7. place-self - shorthand notation for justify self and align self - for child
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+Q .Difference between grid and inline grid?
+The difference between the values inline-grid and grid is that the inline-grid will make the element inline while grid will make it a block-level element.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------

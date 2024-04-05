@@ -1,0 +1,1050 @@
+CSS - Cascading Style Sheets...
+
+You write properties inside a css file like font, size, animation and e.tc.
+
+Q. Why we use CSS?
+Make HTML document - styling and formatting and appearance.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+** Selector in CSS?
+ selector is a way in CSS using which we can select an element.
+
+ Types of selector - 
+ 		1. Simple Selector
+  		I.   Element selector / type selector / tag selector
+  		II.  Class selector
+  		III. Id selector
+
+ 		2. Psuedo-class selector
+ 		
+ 		3. Multiple selector 
+
+
+ for ex --->  
+
+ a{
+ 	color: #02b3e4;
+ 	}
+
+Here 'a' is selector, 'color' is property & '#02b3e4' is value
+'a' --> tells that wherever <a> tag is used, apply this & this property to that element. 
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+1. Simple selectors
+
+	I. Element selector / type selector / tag selector  --->
+		
+		CSS can select HTML elements by using an element's tag name. A tag name is the word (or character) between HTML angle brackets.
+
+
+
+	II. Class Selector --->
+		
+		CSS is not limited selecting elements by tag name. HTML elements can have more than just a tag name;
+		they can also have attributes. One common attribute is the class attribute. It's also possible to select an element by its class attributes.
+	
+		To select HTML element by its class using CSS, a period(.) must be prepended to the class's name.
+
+		for ex -->
+
+		 <p class="one"> This is division one </p>
+	    <p class="one"> This is division second </p>
+	    <p class="sec"> This is division third </p>
+
+	    	styling - 
+	    .one{
+	        color: greenyellow;
+	      }
+	      .sec{
+	        color: blueviolet;
+	      }
+
+
+
+
+	III. ID selector --->
+
+		For situations where you need more specificity in styling, you may also select elements for CSS using an id attribute. You can have different ids associated with a class (although a class is not required).
+
+		The id attribute can be added to an element, along with a class attribute. On the CSS side, the delineation is made by using '#' to represent an id, the same '.' is used for class.
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+2. Pseudo class selector- 
+		
+		A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected elements.     
+
+		For example: hover can be used to change a button's color when the user's pointer hovers over it.
+
+			for ex - 
+		#button:hover {				Here :hover is a pseudo class
+	        color: aqua;	
+	        background-color: darkgreen;
+	      }
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+3. Multiple Selector --->
+		
+		What if we want to add some styles to all our headings? We don't want to have redundant rules, since that would eventually become a nightmare to maintain and is no scalable at all.
+
+		Instead we can select multiple HTML elements in the same CSS rule by separating them with commas.
+
+		Copying and pasting code is usually a bad idea for web developers, and multiple selectors can help reduce that kind of behavior quite a bit.
+
+				for ex -
+			  table,
+		      tr,
+		      td,
+		      th {
+		        border: 1px solid;
+		        border-collapse: collapse;
+		        text-align: center;
+		      }
+
+      Here table, tr, td, th are multiple selectors.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+4. Universal Selector  --->
+
+		The CSS universal selector (*) matches elements of any type.
+
+				for ex - 
+			 * {
+		        color: green;
+		      }
+
+		      All text will be converted to green color.
+
+      The universal selector is a special type selector and can therefore be namespaced when using @namespace. This is useful when dealing with documents containing multiple namespaces such as HTML with inline SVG or MathML, or XML that mixes multiple vocabularies.
+
+		
+		ns|* - matches all elements in namespace ns
+		*|* - matches all elements
+		|* - matches all elements without any declared namespace
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+5. Nested selector  --->
+
+Selector					Example		Example description
+
+element element		div p			Selects all <p> elements inside <div> elements
+element>element		div > p		Selects all <p> elements where the parent is a <div> element
+element+element		div + p		Selects the first <p> element that are placed immediately after <div> elements
+element1~element2	p ~ ul		Selects every <ul> element that are preceded by a <p> element
+	
+
+A combinator is something that explains the relationship between the selectors.
+
+A CSS selector can contain more than one simple selector. Between the simple selectors, we can include a combinator.
+
+There are four different combinators in CSS:
+
+descendant selector (space)
+child selector (>)
+adjacent sibling selector (+)
+general sibling selector (~)
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+6. Attribute selector  --->
+
+		The CSS attribute selector matches elements based on the element having a given attribute explicitly set, with options for defining an attribute value or substring value match.
+
+			for example - 
+			
+			a[class~="logo"] {					
+			// So by using these attribute selector, <a> having class = logo will only have backcolor - brown
+		      background-color: brown;
+		    }
+
+		    <a href="https://thecodehelp.in/"> open code help</a>
+		    <a class="logo" href="https://thecodehelp.in/"> open code help</a>
+		    <a class="logo" href="https://thecodehelp.in/"> open code help</a>
+
+
+    	Other examples - 
+			
+			/* <a> elements with a title attribute */
+			a[title] {
+			  color: purple;
+			}
+
+			/* <a> elements with an href matching "https://example.org" */
+			a[href="https://example.org"]
+			{
+			  color: green;
+			}
+
+			/* <a> elements with an href containing "example" */
+			a[href*="example"] {
+			  font-size: 2em;
+			}
+
+			/* <a> elements with an href ending ".org", case-insensitive */
+			a[href$=".org" i] {
+			  font-style: italic;
+			}
+
+			/* <a> elements whose class attribute contains the word "logo" */
+			a[class~="logo"] {
+			  padding: 2px;
+			}
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+Q. how to add styling to html?
+	we've 3 ways to do this
+	- Inline
+	- Internal
+	- External
+
+
+
+Inline CSS - 
+
+			<!-- Example of Inline CSS -->
+    <P style="font-family: Verdana, Geneva, Tahoma, sans-serif;"> This is Inline CSS </P>
+
+    		To style HTML element, you can add the style attribute directly to the opening tag. After you add the attribute, you can set it equal to the CSS styles you'd like applied to that element.
+
+    		Inline styles should be avoided at all cost because they make it impossible to after styles from an external stylesheet.
+
+    		You should always use CSS classes instead of inline styles.
+
+
+
+
+Internal CSS - 
+			
+			Inline styles are a fast way of styling HTML, but they also have limitations. If you wanted to style, for example, multiple <h1> elements, you would gave to add inline styling to each element manually. In addition, you would also have to maintain the HTML code when additional <h1> elements are added.
+
+
+
+
+External CSS -
+
+			When HTML & CSS code are in separate file, the files must be linked. Otherwise, the HTML file won't be able to locate the CSS code, and the styling will not be applied.
+
+			You can use <link> element to link HTML and CSS file together. <link> must be placed within <head>
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+Q. What is Specificity?
+
+	If there are two or more CSS rules that point to the same element, the selector with the highest specificity value will "win", and its style declaration will be applied to that HTML element.
+
+	Think of specificity as a score/rank that determines which style declaration is ultimately applied to an element.
+
+	Here hierarchy for the weight given to each type of selector, given below - 
+
+	 Specificity rank wise - type selector < class selector < id selector < inline css < !Important(Bad Practice).
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+** Box Model in CSS
+	
+		The box model is the basic building block of CSS.
+
+		According to the box model concept, every element in a page is a rectangular box and may have width, height, padding, borders and margins.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* margin in CSS - 
+
+		The margin CSS shorthand property sets the margin area on all four sides of an element. Gap between borders
+
+		Outer part of border is margin 
+
+		The margin property may be specified using one, two, three, or four values. Each value is a <length>,             a <percentage>, or the keyword auto. Negative values draw the element closer to its neighbors than it would be by default.
+
+		When one value is specified, it applies the same margin to all four sides.
+
+		When two values are specified, the first margin applies to the top and bottom, the second to the left and right.
+
+		When three values are specified, the first margin applies to the top, the second to the right and left, the third to the bottom.
+
+		When four values are specified, the margins apply to the top, right, bottom, and left in that order (clockwise).
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+*padding in CSS -
+
+		The padding CSS shorthand property sets the padding area on all four sides of an element at once.
+		gap between the border and the content inside it.
+
+		An element's padding area is the space between its content and its border.
+
+
+		The padding property may be specified using one, two, three, or four values. Each value is a <length> or          a <percentage>. Negative values are invalid.
+
+		When one value is specified, it applies the same padding to all four sides.
+
+		When two values are specified, the first padding applies to the top and bottom, the second to the left and right.
+
+		When three values are specified, the first padding applies to the top, the second to the right and left, the third to the bottom.
+
+		When four values are specified, the paddings apply to the top, right, bottom, and left in that order (clockwise).
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+*Colors in CSS - 
+
+		colors in CSS can be specified by the following methods:
+
+		1. Hexadecimal colors
+		2. RGB colors
+		3. Predefined / Cross-browser color names
+		4. RGBA colors
+		5. HSL colors
+		6. HSLA colors
+
+		1st 3 are most popular.
+
+
+
+1. Hexadecimal colors - 
+		
+		A hexadecimal color is specified with #RRGGBB, where 
+		RR(red), GG(green), BB(blue) hexadecimal integers sepcify the components of the color. All values must be between 00 and FF
+
+		#0000FF = Blue
+		#00FF00 = Green
+		#FF0000 = Red
+		#000000 = black
+		#FFFFFF = white
+
+		ex - 
+    	<div style="color: #07bdef;"> Division Tom Clancys 2 </div>
+
+
+
+2. RGB colors - 
+		The rgb() function define colors using the Red-green-blue (RGB) model.
+
+		An RGB color value is specified with: rgb(red, green, blue). Each parameter defines the intensity of that color and can be an integer between 0 and 255 or a percentage value (from 0% to 100%).
+
+
+ex - <div style="color: rgb(6, 151, 20)"> Division Tom Clancys 2 </div>
+   
+
+
+
+3. Predefined Colors/Cross-browser colors - 
+ex - 
+		<div style="color: aliceblue"> Division Tom Clancys 2 </div>
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+font - hm
+		font-family
+		font-weight
+		font-style
+		emphasis & importance
+		how to add external fonts?
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+* Units in CSS
+
+		1. Absolute Unit
+		2. Percentage Unit
+		3. Relative Unit
+			I.  Relative to font size
+			II. Related to Document
+
+
+
+1. Absolute Unit - 
+	
+	The absolute length units are fixed and a length expressed in any of these will appear as exactly that size.
+
+	Absolute length units are not recommended for use on screen, because screen sizes vary so much. However, they can be used if the output medium is known, such as for print layout.
+
+		Unit 		Description
+
+		cm			centimeters
+		mm			millimeters
+		in			inches (1in = 96px = 2.54cm)
+		px *		pixels (1px = 1/96th of 1in)
+		pt			points (1pt = 1/72 of 1in)
+		pc			picas (1pc = 12 pt)
+
+
+
+
+2. Percentage Unit - 
+	
+	The <percentage> CSS data type represents a percentage value. It is often used to define a size as relative to an element's parent object. Numerous properties can use percentages, such as width, height, margin, padding, and font-size.
+
+	.parent {
+        width: 500px;
+        height: 100px;
+        border: 1px solid black;
+        background-color: aqua;
+      }
+      .child {
+        background-color: blue;
+        width: 10%;
+        height: 50px;
+        border: 1px solid black;
+        margin: 10px;
+        padding: 10px;
+      }
+
+
+      <div class="parent">
+      <div class="child"></div>
+    </div>  
+
+    Here, we've defined width:10%; inside child, so it's(child's) width will be the 10% of parent div class, i.e. 50px;
+
+
+
+
+3. Relative Unit
+	I.  Relative to font size
+	II. Related to Document
+
+
+
+	I. Relative to font size - 
+
+		Units			Description
+
+		em				Relative to the font-size of the element (2em means 2 times the size of the current font)	
+		ex				Relative to the x-height of the current font (rarely used)	
+		ch				Relative to the width of the "0" (zero)	
+		rem				Relative to font-size of the root element	
+		vw				Relative to 1% of the width of the viewport*	
+		vh				Relative to 1% of the height of the viewport*	
+		vmin			Relative to 1% of viewport's* smaller dimension	
+		vmax			Relative to 1% of viewport's* larger dimension	
+		%					Relative to the parent element
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+** Gradients in CSS -
+		
+		CSS gradients let you display smooth transitions between two or more specified colors.
+
+		3 Types of gradients in CSS --
+				 
+				 1. Linear Gradients (goes down/up/left/right/diagonally)
+				 2. Raidal Gradients (defined by their center)
+				 3. Conic Gradients (rotated around a center point)  
+
+
+
+
+
+	1. Linear Gradients (goes down/up/left/right/diagonally)
+				
+				To create a linear gradient you must define at least two color stops. Color stops are the colors you want to render smooth transitions among. You can also set a starting point and a direction (or an angle) along with the gradient effect.
+
+				ex --->				Linear gradient in different directions
+		.box{
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+    background-image: linear-gradient(aqua, yellow);
+    background-image: linear-gradient(to right,aqua, yellow);
+    background-image: linear-gradient(to left,aqua, yellow);
+    background-image: linear-gradient(to bottom,aqua, yellow);
+    background-image: linear-gradient(to top,aqua, yellow);
+    background-image: linear-gradient(to bottom right,aqua, yellow);
+    background-image: linear-gradient(to top left,aqua, yellow);
+    background-image: linear-gradient(180deg,aqua, yellow);
+    background-image: linear-gradient(230deg,aqua, yellow, brown);
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,255,1));
+
+    }
+
+    	rgba(255,0,0,0), rgba(0,0,255,1)  --> Here in rgba function our last value is value of transparency.
+
+    	Note - Always last value will get picked
+
+
+
+
+					 
+	2. Raidal Gradients (defined by their center)
+
+	 	Radial gradients transition colors progressively from a center point (origin). They are generated with the radial-gradient() function.
+
+
+			 	ex ---
+
+				.rad{
+		    width: 200px;
+		    height: 300px;
+		    border: 1px solid black;
+		    background-image: radial-gradient(aqua, yellow, brown);
+		    background-image: radial-gradient(circle,aqua, yellow, brown);
+		    background-image: radial-gradient(aqua 5%, yellow 10%, violet 40%);
+				}
+
+
+
+
+
+	3. Conic Gradients 
+
+	   	Conic gradients transition colors progressively around a circle. They are generated with the conic-gradient() function.
+
+
+	   		ex -- 
+	   		.cone {
+  			height: 100px;
+  			width: 200px;
+  			border: 1px solid black;
+  			background-image: conic-gradient(lightpink, violet, powderblue);
+							}
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+** CSS Shoadow Effect - 
+ 1. text shadow 
+ 2. box shadow 
+
+  			1. text shadow 	
+  						h1{
+    					text-shadow: 5px 5px 3px violet ;	
+    					text-shadow: 5px 5px 3px yellow, 5px 5px 3px violet ;  		//	for 2 shadows
+								}
+
+								Here 1st- 5px is Horizontal 
+										 2nd- 5px is vertical 
+										 3rd- 3px is blur value
+
+
+
+
+
+				 2. box shadow 
+
+				 				.shell{
+						    background-color: aqua;
+						    color: red;
+						    width: 200px;
+						    height: 200px;
+
+						    box-shadow: 10px 10px 10px yellow;
+
+						    /* box-shadow: -10px -10px 10px brown;  shadow in opposite direction*/
+						   
+						    /* Add border using shadow  */
+						    /* box-shadow: 1px 1px black, -1px -1px black; */
+						    /* By default shadow of box will be the color of content inside it  */
+						   
+						    /* If 4th value is given, it's spread radius  */
+						    /* box-shadow: 10px 10px 10px 10px yellow; */
+
+
+						}
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+*** CSS Dimensional properties --
+			 
+			 height,
+			 widht,
+			 min-height
+			 min-width
+			 max-height
+			 max-width
+
+
+			 	max-height --  specifies that max height of a box will be 100 px... if you write more content than 100px, then it'll get overflow.
+					 	overflow: scroll;
+    	 			/* we can control overflow by adding overflow:scroll or auto  */
+
+
+    		min-height  -- sepcifies that min height of a box will be ex- 100px... if your content is smaller than 100px - no problem, if your content is greater than 100px it'll automatically grow.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+** Overflow properties - 
+		Values- 
+					Hidden,
+					Visible, 
+					Auto,
+					Scroll
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+** CSS Position Property - 
+		
+		Static, 
+		Relative,
+		Fixed,
+		Absolute,
+		Sticky
+
+
+
+1. Static - 
+		
+		By default position is Static.
+		It is always positioned according to the normal flow of the page.
+
+
+2. Relative - 
+	
+	.box{
+    background-color: aquamarine;
+    height: 100px;
+    width: 200px;
+    /* Relative position only works when we give its properties - left, right, top, bottom  */
+    position: relative;         
+    left: 20px;
+    top: 30px;
+}
+
+			The element is positioned according to the normal flow of the document, and then offset relative to itself based on the values of top, right, bottom, and left. The offset does not affect the position of any other elements; thus, the space given for the element in the page layout is the same as if position were static.
+
+
+		  An element with relative position, is positioned relative to its normal position.
+
+
+
+
+3. Fixed - 
+	
+	.box1{
+    position: fixed;
+}
+
+		-- position of that element will be fixed on webpage.
+
+
+
+4. Absolute -
+	
+	An element with position absolute, is positioned relative to the nearest positioned ancestor.
+
+	If absolute positioned element has no positioned ancestor, it uses document body, and moves along with page scrolling. 
+
+
+
+5. Sticky - 
+	
+	Sticky element toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in viewport- then it sticks in place like (position:fixed)
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+** CSS 2D Transform ->
+
+	translate()
+	rotate()
+	scaleX()
+	scaleY()
+	scale()
+	skewX()
+	skewY()
+	matrix()
+
+
+
+	translate()
+   .tr{
+    background-color: aquamarine;
+    transform: translate(100px, 100px);
+			}               
+
+			1st 100px - horizontal, 2nd 100px - vertical
+
+
+
+
+	rotate()
+		 transform: rotate(40deg);  
+
+		 rotates by 40deg
+
+
+
+	scale() - is a shorthand property of scaleX & scaleY
+
+			transform: scale(2,4);
+
+			2 is horizontal scaling, 4 is vertical 
+
+
+
+
+	skew() - is a shorthand property of skewX & skewY
+	 transform: skew(20deg);
+	 transform: skew(20deg,20deg);
+
+
+
+	matrix()  -
+
+			The matrix() method combines all the 2D transform methods into one.
+
+			The matrix() method take six parameters, containing mathematic functions, which allows you to rotate, scale, move (translate), and skew elements.
+	 		
+	 		The values represent the following functions: matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+** Prespective -- 
+
+		The perspective CSS property determines the distance between the z=0 plane and the user in order to give a 3D-positioned element some perspective.
+
+		The perspective property is used to give a 3D-positioned element some perspective.
+
+		The perspective property defines how far the object is away from the user. So, a lower value will result in a more intensive 3D effect than a higher value.
+
+		When defining the perspective property for an element, it is the CHILD elements that get the perspective view, NOT the element itself.
+
+		We need our perspective on , when dealing with translate() and scaling().
+
+		The parts of the 3D elements that are behind the user — i.e. their z-axis coordinates are greater than the value of the perspective CSS property — are not drawn.
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+** Flex-box --- Important
+
+
+
+		flexbox is a layout model through which we can do space distribution and alignment capabilities.
+
+		flexbox is a great way to get more flexibility in your layouts and to simplify responsive layout desgin. 
+
+		It makes it easy to align elements on a 2D plane and it pretty easy to use once you get familiar with the main properties.
+
+		In flexbox - horizontal axis is called - main axis
+		and 				 vertical axis is called -   cross axis
+
+		In flexbox - we've parent container --> flexbox
+								and child ----> flex-items
+
+
+
+		*** Below are the properties of parent container
+		In flexbox - parent container has different properties and child container has different properties.
+		
+		display: flex;
+
+		1. flex-direction: column;  /*to change the direction of main axis from horizontal to vertical.
+    By default direction of main axis is horizontal*/
+
+
+    Here, we use flex-direction : to change the direction of main axis. 
+
+
+    2. flex-wrap: wrap; /*default value nowrap*/
+    flex-wrap: wrap-reverse; /*will wrap from top*/
+
+
+    3. /* flex-flow is a shorthand notation for flex-direction & flex-wrap  */
+
+
+ 		4. /* Justify Content Properties */
+ 			justifies content respect to main axis - horizontal axis
+
+
+
+    5. align-items: flex-start;
+
+    		justifies content respect to cross axis - vertical axis
+    		will place the items at the starting of vertical axis
+
+    		By default value of align-items is strech
+
+    		If you've different sizes of text, then use 
+    		"baseline" to match the baseline of that unevenly sized text.
+  
+
+
+
+  	6. /* Align content properties  */
+
+  			handles spaces between the flex-items, when flex-items creates rows / handles rows alignment (after checking its responsiveness).
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+  		*** Below are the properties of flex-items -
+
+  			The direct child elements of a flex container automatically becomes flexible(flex) items.
+
+
+  		1. Order -  defines the order of elements/boxes.
+  		#box1{
+			    order: 3;
+			}
+
+			#box2{
+			    order: 6;
+			}
+
+			#box3{
+			    order: 4;
+			}
+
+			#box4{
+			    order: 5;
+			}
+
+
+
+			2. Flex grow - whichever space available that flex-item will consume all of that space. 
+
+			#box1{
+			    order: 3;
+			    flex-grow: 1;
+			    
+			}
+
+
+			3. Flex shrink - determines by which speed your box/element will get shrink.
+
+			#box2 {
+				  order: 6;
+				  flex-shrink: 6;
+				}
+
+
+
+			4. Flex Basis - Used to give width to flex-items.
+
+				if we use width - if content doesn't fit inside box, then the content will trimmed (not responsive).
+
+				if we use flex-basis, content will not get trimmed.(responsive).
+
+
+			5. Flex - shorthand notation of all above four properties.
+
+
+			6. Align self property - 
+					#box4 {
+					  order: 9;
+					  /* align-self: stretch; */
+					}
+
+					if you want flex-item to be streched, or at the end, or start e.t.c
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+** CSS Grid ---->
+		
+		CSS Grid Layout is a 2 dimensional layout system for the web.
+
+		It lets you lay content out in rows and columns.
+
+		A grid typically have columns, rows and gaps between each row and column. 
+		The gaps are commonly referred to as gutters.
+
+		There is a difference between flexbox and grid.
+
+		flexbox-- is specific to positioning of content.
+						-- is 1-D
+
+		grid -- is specific to layout creation.
+						is 2-D
+
+				display: grid        //same as flexbox
+
+
+			In grid, we call parent container and child container as grid items.
+
+
+
+		Examples ---->
+
+		 /* To add columns in grid  */
+    /* grid-template-columns: 200px 200px 200px; */
+
+    /* To add grid columns of equal sizes - 2 ways
+    1st way -  */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* 2nd Way  */
+    /* grid-template-columns: repeat(3, 1fr); */
+    
+    /* You can also give 1st column different size and rest columns with same size  */
+    /* grid-template-columns: 100px repeat(3, 1fr); */
+
+    /* You can also give 1st & last column different size and rest columns with same size  */
+    /* grid-template-columns: 100px repeat(2, 1fr) 200px; */
+
+    grid-template-columns: repeat(2, 1fr);
+
+
+
+    /* Above all columns properties will be same for rows too  */
+    grid-template-rows: 90px 90px 90px 90px;
+    grid-template-rows: repeat(4, 1fr);
+
+
+
+   To add gap/gutter between columns and rows 
+   gap: 15px;
+
+
+
+   To extend column into other columns
+   let's say you want to span/extend col.1 into col.2 and col.3
+
+   we've ----- 
+   
+   #box1{
+    
+    grid-column-start: 1;
+    grid-column-end: 3;
+		
+		}
+
+		By doing this, column will extend from line no.1 to line no.3
+
+
+
+
+		To extend row into other row
+   let's say you want to span/extend row.2 into row.3 and row.4
+
+   we've 
+   
+			#box3{
+			    grid-row-start: 2;
+			    grid-row-end: 4;
+			}
+
+		By doing this, row will extend from line no.2 to line no.4
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+**** Some more properties - 
+
+	justify content - start, end, center, space between, space evenly, space around.
+
+	align content - 
+	justify self - 
+	justify items - 
+	align items - 
+	align self - 
+	place items - 
+	place self - 
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
